@@ -1,4 +1,3 @@
-import React from "react";
 import headerLogo from "../../assets/Illustration.svg";
 import styles from "./MainContent.module.css";
 
