@@ -50,9 +50,3 @@
     color: rgba(255, 255, 255, 1);
     background-color: rgba(64, 64, 64, 1);
 }
-
-@media (max-width: 1540px) {
-    .content{
-    width: 50%;
-    gap: 40px;}
-  }
