@@ -1,7 +1,19 @@
+import { useEffect } from "react";
 import headerLogo from "../../assets/Illustration.svg";
 import styles from "./MainContent.module.css";
+import { EOnboarding } from "../../onBoardingConfig";
+import { createOnBoardingTooltip } from "../OnBoardingTooltip/OnBoardingTooltip";
+import { useOnBoarding } from "../../hooks/useOnBoarding";
 
+const OnBoardingTooltip = createOnBoardingTooltip(EOnboarding.Main);
 export const MainContent = () => {
+	const { targetIDs, startOnBoarding } = useOnBoarding(EOnboarding.Main);
+	const [changeConfig, buySofa] = targetIDs;
+
+	useEffect(() => {
+		setTimeout(startOnBoarding, 200);
+	}, [startOnBoarding]);
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.content}>
@@ -12,8 +24,12 @@ export const MainContent = () => {
 				<p>Выберите действие для продолжения</p>
 			</div>
 			<div className={styles.buttonsContent}>
-				<button className={styles.whiteButton}>Изменить конфигурацию</button>
-				<button className={styles.blackButton}>Купить любой диван</button>
+				<OnBoardingTooltip target={changeConfig}>
+					<button className={styles.whiteButton}>Изменить конфигурацию</button>
+				</OnBoardingTooltip>
+				<OnBoardingTooltip target={buySofa}>
+					<button className={styles.blackButton}>Купить любой диван</button>
+				</OnBoardingTooltip>
 			</div>
 		</div>
 	);
