@@ -1,4 +1,4 @@
-import { PropsWithChildren, FC, forwardRef } from "react";
+import { PropsWithChildren, forwardRef } from "react";
 import styles from "./backdrop.module.css";
 import clsx from "clsx";
 
