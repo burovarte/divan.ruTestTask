@@ -1,5 +1,5 @@
 import { Popper } from "@mui/base";
-import { FC, PropsWithChildren, useCallback, useMemo, useRef } from "react";
+import { FC, PropsWithChildren, useMemo, useRef } from "react";
 import { EOnboarding } from "../../onBoardingConfig";
 import { useOnBoardingContent } from "../../hooks/useOnBoardingContent";
 import { OnBoardingContent } from "../OnBoardingContent/OnBoardingContent";
