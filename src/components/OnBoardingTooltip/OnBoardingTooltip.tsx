@@ -1,5 +1,5 @@
 import { Popper } from "@mui/base";
-import { FC, PropsWithChildren, useMemo, useRef } from "react";
+import { FC, PropsWithChildren, useCallback, useMemo, useRef } from "react";
 import { EOnboarding } from "../../onBoardingConfig";
 import { useOnBoardingContent } from "../../hooks/useOnBoardingContent";
 import { OnBoardingContent } from "../OnBoardingContent/OnBoardingContent";
@@ -10,11 +10,12 @@ import { useResizedStyles } from "./useResizedStyles";
 
 type OnBoardingTooltipProps = PropsWithChildren<{
 	target: string;
+	onHighlightClicked: () => void;
 }>;
 
 export const createOnBoardingTooltip =
 	(type: EOnboarding): FC<OnBoardingTooltipProps> =>
-	({ children, target }) => {
+	({ children, target, onHighlightClicked }) => {
 		const { tooltipData } = useOnBoardingContent(type, target);
 		const {
 			onNext,
@@ -35,6 +36,7 @@ export const createOnBoardingTooltip =
 
 		const highlight = highlightStyles ? (
 			<div
+				onClick={onHighlightClicked}
 				style={{
 					position: "absolute",
 					background: "gray",

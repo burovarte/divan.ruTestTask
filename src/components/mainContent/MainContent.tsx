@@ -14,6 +14,9 @@ export const MainContent = () => {
 		setTimeout(startOnBoarding, 200);
 	}, [startOnBoarding]);
 
+	const handleChangeConfigClick = () => alert("Конфигурация изменена");
+	const handleBuyAnySofaClick = () => alert("Диван куплен");
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.content}>
@@ -23,12 +26,29 @@ export const MainContent = () => {
 				<h1>Добро пожаловать в конструктор!</h1>
 				<p>Выберите действие для продолжения</p>
 			</div>
+
 			<div className={styles.buttonsContent}>
-				<OnBoardingTooltip target={changeConfig}>
-					<button className={styles.whiteButton}>Изменить конфигурацию</button>
+				<OnBoardingTooltip
+					target={changeConfig}
+					onHighlightClicked={handleChangeConfigClick}
+				>
+					<button
+						onClick={handleChangeConfigClick}
+						className={styles.whiteButton}
+					>
+						Изменить конфигурацию
+					</button>
 				</OnBoardingTooltip>
-				<OnBoardingTooltip target={buySofa}>
-					<button className={styles.blackButton}>Купить любой диван</button>
+				<OnBoardingTooltip
+					target={buySofa}
+					onHighlightClicked={handleBuyAnySofaClick}
+				>
+					<button
+						onClick={handleBuyAnySofaClick}
+						className={styles.blackButton}
+					>
+						Купить любой диван
+					</button>
 				</OnBoardingTooltip>
 			</div>
 		</div>
